@@ -50,7 +50,7 @@ module.exports = function(options) {
 			taskName = parent + ':' + taskName;
 		}
 
-		gulp.task(taskName, dependencies, func);
+		gulp.task(taskName, dependencies, _.isFunction(func) ? func : func.default);
 	}
 
 	function resolvePath(dir) {
